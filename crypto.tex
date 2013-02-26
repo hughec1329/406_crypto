@@ -1,6 +1,5 @@
 \documentclass[12pt]{article}
 \usepackage{graphicx}
-\usepackage{fullpage}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{setspace}
@@ -14,13 +13,15 @@
 \renewcommand{\headrulewidth}{0 pt}
 
 \hypersetup{colorlinks = true, linkcolor = blue, citecolor = blue}
-\title{investigation into personal hygeine and infection with \emph{Cryptosporidium parvum} in a teaching facility in The california central valley}
+\title{Investigation into the effect of growing food onsite on the incidence of cryptosporidiosis in California Ranching households}
 \author{Student ID: 997900158}
 \date{\today}
 \begin{document}
 	\maketitle
 	\begin{abstract}
 		This its ht 
+
+		After adjusting for source of drinking water, households that grew more than 50\% their food  on site were 2.2 times more likely to experience a cryptosporidiosis event each year than those who did not grow more than 50\% of food onsite.
 
 	\end{abstract}
 
@@ -76,27 +77,56 @@
 		At the conclustion of this visit the nurse practitioner also dropped off faeces collection materials and prepaid return envelopes to failitate sample detection in symptomatic individuals. 		% could freeze amples on site then collect at end of season at same time as interview for case.
 		Training was provided in correct sample collection and handling procedures.
 		These samples were mailed to the CAHS lab at UC Davis for IFA and DNA isolation,  as described in \cite{Atwill1999}
+		At the end of the study period, participants were mailed a final questionare regarding GI upsets.
 		
 
 		Cases of intestinal discomfort, fever, and diarrhoea were self reported by ranching families, and confimred with IFA and DNA isolation on stool sample to confirm \emph{Cryptosporidium parvum} was the causitaive agent.
 		Study participants names were also searched in local medical databases to detect any cases that went unreported. 15 cases in the exposed group and 18 in the unexposed group were identified in this way. 
 		
 		No matching was undertaken due to the sparsity of study population with respect to predictor variables. Blinding NP was unneccecary as at the time of interview, the case outcome of each family was unknown.
+		Each individuals medical history was examined and any with incidence of severe diarrhoea or other gastrointestinal disease in the last 6 moths was excluded. any Individual with a history of compromised immune system was removed from the study.
+		As the duration of shedding \emph{C. parvum} is typically below one month following infection, it was decided an examination of medical history for past gastrointestinal problems was sufficient for screenign prevalent cases of disease, as individual fecal samples at enrollment would prove too costly and would scare many potential study participants away.
+		
 
+
+		Sample size recquirements were computed using Epi info with alpha of 0.05, desired power of 0.8, biologically signifigant RR of 2, returning a sample size per group of 686 per group, with 10\% added for attrition, to return total sample size of 1510.
+		Output can be seen in \ref{samplesizecalc}
 
 		Where possible, stocking rates were confirmed by crossreferencing sales records with property registration records
 		
-		inclusion criteria
-			any immuno compromised people were excludedd from the study
-			any without complete record.
+
+		Data quality was maintained throughout the study by using trained professionals for data collection, quereying county medical records to check for missed cases, and using barcoded sample collection containers unique to each household to eliminate mistakes in the lab.
+		IFA tests were calibrated against a gold standard before and after running each batch to ensure consistency.
 
 	\subsection{Statistical Evaluation}
-		household level random effect.
+		Cox proportional hazard models were used with time to event as response and various covariates discussed above as predictors, with a household level random effect included.
+		The baseline hazard was modified to follow a weibull distribution to reflect the fact that risk for cryptosporidiosis varies with time over the season, with an increased risk occuring with the precence of young calves following calving start date. 
+		This model yieldd results as shown in \ref{table2}
+		Due to some loss of study households in both case and control groups, Incidence density rates were calculated for all strata of the covariates with findings indicated in \ref{table2}.
+
+
 
 	\section{Results}
 		During the study period there were XXXX cases of crypto sporidiosis confirmed by fecal IFA, giving an overall incidence density rate of XXXX per 100,000 person years. 
 		This high incidence rate contrasts with the general population ( CITATION ) 
-		Within the ranching comuunity, there were various risk factors identified for cryptosporidiosis , as listed in Table 2. 
+		Within the ranching comuunity, there were various risk factors identified for cryptosporidiosis , as listed in \ref{table2}. 
+
+
+		Number of aged people, precence of a pool, slaughtering own meat, eating wild game, size of property, and numbe rof animals were all found to not differ signifigantly between the households that experienced a cryptosporidiosis event and those that did not. 
+
+
+		A potential confounder investigated in this study was age.
+		Age of case was recorded and included investigated as it was known children are more likely to become infected with cryptosporidiosis, and are also more likley to be exposed by swimming in contaminated waterways, and practicing substandard personal hygien.
+		It was found that IDR for households with young children differed from crude unadjusted IDR.
+
+		Interactions that were investigated included source of drinking water and more than half of food grown on site.
+		households that used surface water for drinking were XXX more times liekelt to undergo an episode of cryptosporidiosis, and this 
+
+
+		Sources of possible bias in this study was selection bias and follow up bias.
+		It is possible that there was differential loss to follow up during this study, with ranching families that did not experince a any gastrointestinal event during study period not bothering to report at end of study period.
+		It is also possible that not all cases of GI upset due to cryptosporidiosis were recorded and confirmed. 
+		selection bias may have occured as families with a history of GI upset may be more interested in study finding ans hence be more likely to participate. as there is some evidence of immunity following initial episode, this may reduce incidence in exposure group, reducing calculated RR.
 
 
 	\section{Discussion} 
@@ -140,7 +170,7 @@
 
 \begin{figure*}[h!]
 	\centering
-	\includegraphics[scale=0.6]{samplesizecalc.jpg}
+	\includegraphics[scale=0.6]{sample.jpg}
 	\caption{Sample size function and calculation output from R. Calculations agrees with Epi Info when continuity correction was applied.}
 	\label{fig:samplesizecalc}
 \end{figure*}
